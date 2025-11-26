@@ -1,0 +1,16 @@
+[Unit]
+Description=WiFi Heatmap Dashboard
+After=network.target wifi-scanner.service
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/Wifi Heatmap/wifi-heatmap-dashboard
+ExecStart=/usr/bin/python3 /home/pi/Wifi Heatmap/wifi-heatmap-dashboard/app.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
